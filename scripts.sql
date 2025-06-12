@@ -14,3 +14,21 @@ SELECT Nome, Ano, Duracao FROM Filmes WHERE Duracao > 100 AND Duracao < 150 ORDE
 SELECT Ano, COUNT(*) Quantidade FROM Filmes GROUP BY Ano ORDER BY Quantidade DESC;
 -- 8 - Buscar os Atores do gênero masculino, retornando o PrimeiroNome, UltimoNome
 SELECT PrimeiroNome, UltimoNome FROM Atores WHERE Genero = 'M';
+-- 9 - Buscar os Atores do gênero feminino, retornando o PrimeiroNome, UltimoNome, e ordenando pelo PrimeiroNome
+SELECT PrimeiroNome, UltimoNome FROM Atores WHERE Genero = 'F' ORDER BY PrimeiroNome;
+-- 10 - Buscar o nome do filme e o gênero
+SELECT Filmes.Nome, Generos.Genero 
+FROM Filmes
+JOIN Generos ON Filmes.IdGenero = Generos.Id;
+
+-- 11 - Buscar o nome do filme e o gênero do tipo "Mistério"
+SELECT Filmes.Nome, Generos.Genero 
+FROM Filmes
+JOIN Generos ON Filmes.IdGenero = Generos.Id
+WHERE Generos.Genero = 'Mistério';
+
+-- 12 - Buscar o nome do filme e os atores, trazendo o PrimeiroNome, UltimoNome e seu Papel
+SELECT Filmes.Nome AS NomeFilme, Atores.PrimeiroNome, Atores.UltimoNome, ElencoFilme.Papel
+FROM ElencoFilme
+JOIN Filmes ON ElencoFilme.IdFilme = Filmes.Id
+JOIN Atores ON ElencoFilme.IdAtor = Atores.Id;
