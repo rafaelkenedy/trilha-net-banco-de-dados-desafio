@@ -20,13 +20,11 @@ SELECT PrimeiroNome, UltimoNome FROM Atores WHERE Genero = 'F' ORDER BY Primeiro
 SELECT Filmes.Nome, Generos.Genero 
 FROM Filmes
 JOIN Generos ON Filmes.IdGenero = Generos.Id;
-
 -- 11 - Buscar o nome do filme e o gênero do tipo "Mistério"
 SELECT Filmes.Nome, Generos.Genero 
 FROM Filmes
 JOIN Generos ON Filmes.IdGenero = Generos.Id
 WHERE Generos.Genero = 'Mistério';
-
 -- 12 - Buscar o nome do filme e os atores, trazendo o PrimeiroNome, UltimoNome e seu Papel
 SELECT Filmes.Nome AS NomeFilme, Atores.PrimeiroNome, Atores.UltimoNome, ElencoFilme.Papel
 FROM ElencoFilme
